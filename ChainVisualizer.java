@@ -94,7 +94,11 @@ public class ChainVisualizer extends JPanel {
 			if(units[unitCount].getCastStartFrames() != null) {
 				for(int castCount = 0; castCount < units[unitCount].getCastStartFrames().size(); castCount++) {
 					int currentCastFrame = units[unitCount].getCastStartFrames().get(castCount);
-					int xPos = 100 + currentCastFrame;
+					/*
+					 * Including offset
+					 * int currentCastFrame = units[unitCount].getCastStartFrames().get(castCount) + units[unitCount].getSkills()[castCount].getOffset();
+					 */
+					int xPos = 100 + (2 * currentCastFrame);
 					canvas.fillOval(xPos, yPos, 5, 5);
 				}
 				yPos += 40;
