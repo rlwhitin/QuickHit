@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
@@ -43,7 +42,8 @@ public class Unit extends JPanel implements ChangeListener, ActionListener {
 			skills[count] = new Skill(count+1, this);
 			this.add(skills[count]);
 		}
-		unitSendTimeSlider = new JSlider(-100, 100);
+		unitSendTimeSlider = new JSlider(0, 200);
+		unitSendTimeSlider.setValue(0);
 		unitSendTimeSlider.setMajorTickSpacing(25);
 		unitSendTimeSlider.setPaintTicks(true);
 		unitSendTimeSlider.addChangeListener(this);
@@ -151,13 +151,21 @@ public class Unit extends JPanel implements ChangeListener, ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(sendTimeSliderText.getText().equals("")) {
+			sendTimeSliderText.setText("0");
+		}
 		sendTime = Integer.parseInt(sendTimeSliderText.getText());
 		if(sendTime < unitSendTimeSlider.getMinimum()) {
-			unitSendTimeSlider.setMinimum(sendTime);
+			unitSendTimeSlider.setValue(unitSendTimeSlider.getMinimum());
 		}
 		else if (sendTime > unitSendTimeSlider.getMaximum()) {
-			unitSendTimeSlider.setMaximum(sendTime);
+			int newSendTime = sendTime;
+			unitSendTimeSlider.setMaximum(newSendTime);
+			unitSendTimeSlider.setValue(newSendTime);
+			sendTime = newSendTime;
 		}
-		unitSendTimeSlider.setValue(sendTime);
+		else {
+			unitSendTimeSlider.setValue(sendTime);
+		}
 	}
 }

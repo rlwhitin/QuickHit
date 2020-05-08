@@ -43,13 +43,6 @@ public class ChainHit implements Comparable<ChainHit> {
 	}
 	
 	/*
-	 * Only used for easy debugging.
-	 */
-	public String toString() {
-		return Integer.toString(hitFrame);
-	}
-	
-	/*
 	 * Used so that we can sort the ChainHit ArrayList.
 	 */
 	@Override

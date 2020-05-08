@@ -1,7 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
-
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,7 +10,8 @@ import javax.swing.JTextArea;
 public class QuickHitGUI {
 	JFrame mainWindow;
 	Unit[] unitPanels = new Unit[Constants.MAX_NUMBER_OF_UNITS];
-	JPanel combinedUnitPanel, chainVisualPanel, macroPanel;
+	JPanel combinedUnitPanel, chainVisualPanel;
+	MacroMaker macroPanel;
 	ChainVisualizer chainVisualizer;
 	JTextArea macroOutputField;
 	
@@ -50,6 +48,9 @@ public class QuickHitGUI {
 		mainWindow.add(chainVisualizer, BorderLayout.CENTER);
 	}
 	
+	/*
+	 * Initializes the unit panels.
+	 */
 	private void initializeUnitPanels() {
 		combinedUnitPanel = new JPanel();
 		for(int count = 0; count < Constants.MAX_NUMBER_OF_UNITS; count++) {
@@ -58,6 +59,9 @@ public class QuickHitGUI {
 		}
 	}
 	
+	/*
+	 * Initializes the chain visualizer.
+	 */
 	private void initializeChainPanel() {
 		chainVisualizer = new ChainVisualizer(unitPanels);
 	}
@@ -67,9 +71,6 @@ public class QuickHitGUI {
 	 * Sets up the panel containing the macro output.
 	 */
 	private void initializeMacroPanel() {
-		macroPanel = new JPanel();
-		macroOutputField = new JTextArea(14, 34);
-		macroOutputField.setBorder(BorderFactory.createLineBorder(Color.black));
-		macroPanel.add(macroOutputField);
+		macroPanel = new MacroMaker(unitPanels);
 	}
 }

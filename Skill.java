@@ -33,7 +33,7 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 	Skill(int newCastNumber, Unit newParentUnit) {
 		parentUnit = newParentUnit;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		hits = null;
+		hits = new int[0];
 		castTime = null;
 		cgDelay = 0;
 		castNumber = newCastNumber;

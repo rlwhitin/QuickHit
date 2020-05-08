@@ -4,7 +4,6 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -14,7 +13,6 @@ import java.util.Collections;
 public class ChainVisualizer extends JPanel {
 	Unit[] units;
 	ArrayList<ChainHit> chainHits;
-	ArrayList<Integer> chainBreaks;
 	int firstFrame, lastFrame;
 	
 	/*
@@ -22,7 +20,7 @@ public class ChainVisualizer extends JPanel {
 	 */
 	ChainVisualizer(Unit[] newUnits) {
 		units = newUnits;
-		chainHits = null;
+		chainHits = new ArrayList<ChainHit>();
 		setBackground(Color.WHITE);
 		setBorder(BorderFactory.createEtchedBorder((EtchedBorder.RAISED)));
 	}
@@ -34,27 +32,27 @@ public class ChainVisualizer extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D canvas = (Graphics2D) g;
+		drawRuler(canvas);
 		drawUnitNames(canvas);
 		drawCastStartFrames(canvas);
 		drawChainHits(canvas);
+		MacroMaker.updateMacro();
 	}
-	
-	
+
 	/*
 	 * Updates the chainVisualizer image.
 	 */
 	public void updateChains() {
 		populateChainHits();
 		calcChainBreaks();
-		findFirstAndLastFrames();
 		repaint();
 	}
-
+	
+	
 	/*
 	 * Checks the chains for this turn to see if there are any breaks.
 	 */
 	private void calcChainBreaks() {
-		chainBreaks = new ArrayList<Integer>();
 		int prevHitFrame;
 		int prevHitUnit;
 		if(chainHits.size() >= 2) {
@@ -62,24 +60,23 @@ public class ChainVisualizer extends JPanel {
 			prevHitUnit = chainHits.get(0).getSlot();
 			for(int count = 1; count < chainHits.size(); count++) {
 				if(chainHits.get(count).getFrame() - prevHitFrame > 20) {
-					chainBreaks.add(chainHits.get(count).getFrame());
+					chainHits.get(count).setChainBreak(true);
 				}
 				else if(chainHits.get(count).getSlot() == prevHitUnit) {
-					chainBreaks.add(chainHits.get(count).getFrame());
+					chainHits.get(count).setChainBreak(true);
 				}
 				prevHitFrame = chainHits.get(count).getFrame();
 				prevHitUnit = chainHits.get(count).getSlot();
 			}
 		}
-	}
-	
+	}	
 	
 	/*
 	 * Draws the unit names.
 	 */
 	private void drawUnitNames(Graphics2D canvas) {
 		int xPos = 10;
-		int yPos = 25;
+		int yPos = 30;
 		for(int unitCount = 0; unitCount < units.length; unitCount++) {
 			if(units[unitCount].getNumberOfCasts() > 0) {
 				canvas.drawString(units[unitCount].getUnitName(), xPos, yPos);
@@ -92,7 +89,7 @@ public class ChainVisualizer extends JPanel {
 	 */
 	private void drawCastStartFrames(Graphics2D canvas) {
 		canvas.setColor(Color.BLUE);
-		int yPos = 18;
+		int yPos = 23;
 		for(int unitCount = 0; unitCount < units.length; unitCount++) {
 			if(units[unitCount].getCastStartFrames() != null) {
 				for(int castCount = 0; castCount < units[unitCount].getCastStartFrames().size(); castCount++) {
@@ -106,44 +103,36 @@ public class ChainVisualizer extends JPanel {
 	}
 	
 	/*
-	 * Draws the chain hits for this turn, color coding them as needed.
+	 * Draws ticks along the top and bottom of the macro window.
 	 */
-	private void drawChainHits(Graphics2D canvas) {
-		if(chainHits != null) {
-			canvas.setColor(Color.BLACK);
-			for(ChainHit thisChainHit : chainHits) {
-				int xPos = 100 + (2 * thisChainHit.getFrame());
-				int yPos = 5+ (40 * thisChainHit.getSlot());
-				canvas.drawLine(xPos, yPos, xPos, yPos + 30);
-			}
+	private void drawRuler(Graphics2D canvas) {
+		for(int count = 0; count < 47; count++) {
+			int xPos = 103 + (25 * count);
+			canvas.drawLine(xPos, 0, xPos, 6);
 		}
 	}
 	
 	/*
-	 * Finds the earliest and latest frame that the chainVisualizer will have to draw.
+	 * Draws the chain hits for this turn, color coding them as needed.
 	 */
-	private void findFirstAndLastFrames() {
-		firstFrame = 1500;
-		lastFrame = -1500;
-		for(int unitCount = 0; unitCount < units.length; unitCount++) {
-			if(units[unitCount].getCastStartFrames() != null) {
-				for(int castCount = 0; castCount < units[unitCount].getCastStartFrames().size(); castCount++) {
-					if(firstFrame > units[unitCount].getCastStartFrames().get(castCount)) {
-						firstFrame = units[unitCount].getCastStartFrames().get(castCount);
-					}
-					if(lastFrame > units[unitCount].getCastStartFrames().get(castCount)) {
-						lastFrame = units[unitCount].getCastStartFrames().get(castCount);
-					}
-				}
+	private void drawChainHits(Graphics2D canvas) {
+		ArrayList<Integer> filledUnitSlots = new ArrayList<Integer>();
+		for(ChainHit thisChainHit : chainHits) {
+			if(!filledUnitSlots.contains(thisChainHit.getSlot())) {
+				filledUnitSlots.add(thisChainHit.getSlot());
 			}
 		}
-		
+		Collections.sort(filledUnitSlots);
 		for(ChainHit thisChainHit : chainHits) {
-			if(firstFrame > thisChainHit.getFrame()) {
-				firstFrame = thisChainHit.getFrame();
+			int xPos = 100 + (2 * thisChainHit.getFrame());
+			int yPos = 10 + (40 * filledUnitSlots.indexOf(thisChainHit.getSlot()));
+			if(thisChainHit.breaks()) {
+				canvas.setColor(Color.RED);
+				canvas.drawLine(xPos, yPos, xPos, yPos + 30);
+				canvas.setColor(Color.BLACK);
 			}
-			if(lastFrame < thisChainHit.getFrame()) {
-				lastFrame = thisChainHit.getFrame();
+			else {
+				canvas.drawLine(xPos, yPos, xPos, yPos + 30);
 			}
 		}
 	}
