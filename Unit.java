@@ -82,11 +82,11 @@ public class Unit extends JPanel implements ChangeListener, ActionListener {
 	 * Calculates how many casts a unit is using this turn. Note that it stops as soon as it sees a single "None" skill-- any "non-damaging" skills must be input as custom skills without frames.
 	 */
 	private void calcNumberOfCasts() {
-		int count = 0;
 		numberOfCasts = 0;
-		while((skills[count].getCastTime() != null) && (count < skills.length) && (skills[count].getHits() != null)) {
-			numberOfCasts++;
-			count++;
+		for(int count = 0; count < skills.length; count++) {
+			if((skills[count].getCastTime() != null) && (skills[count].getHits() != null)) {
+				numberOfCasts++;
+			}
 		}
 	}
 	
@@ -118,8 +118,15 @@ public class Unit extends JPanel implements ChangeListener, ActionListener {
 		return hitFrames;
 	}
 	
+	/*
+	 * Accessor method for unitName.
+	 */
 	public String getUnitName() {
 		return unitName;
+	}
+	
+	public static ChainVisualizer getChainVisualizer() {
+		return chainVisualizer;
 	}
 	
 	/*

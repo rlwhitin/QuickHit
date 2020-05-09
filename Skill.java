@@ -241,6 +241,7 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 					hits[count] = newFrames.get(count);
 				}
 			}
+			parentUnit.calcFrames();
 			frameReader.close();
 		}
 		customSkillInputFrame.dispose();
