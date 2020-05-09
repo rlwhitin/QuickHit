@@ -101,7 +101,9 @@ public class ChainVisualizer extends JPanel {
 					int xPos = 100 + (2 * currentCastFrame);
 					canvas.fillOval(xPos, yPos, 5, 5);
 				}
-				yPos += 40;
+				if(units[unitCount].getCastStartFrames().size() > 0) {
+					yPos += 40;
+				}
 			}
 		}
 		canvas.setColor(Color.BLACK);
