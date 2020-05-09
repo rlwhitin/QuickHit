@@ -1,6 +1,7 @@
 # **Quick Hit**
 QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will show a visual representation of chains, showing when and where they will break.
 
+![QH Image](https://i.imgur.com/IKdlc6O.png)
 ## Running Quick Hit
 For most people, unless they want to look at my very messy source code, you only need to download QuickHit.jar. The other files are unnecessary.
 
@@ -30,10 +31,12 @@ CG delay is something that is only relevant for units that have CG LBs. Supposed
 
 If you have the actual CG animation turned on, things become slightly more complicated. This will increase the CG delay by two, but if you activate multiple CG LBs in rapid succession, only the first one will show its CG animation, so the others won't have that 2 frame delay, so you'll have to adjust your inputs appropriately. For this reason, I would suggest leaving CG animations off. It simplifies things.
 
+## Skills with movement
 For most skills, you can just leave the offset at its default value. However, if you're using a skill that has walking frames, then you should try to adjust this to include however many frames you think it will take the unit to walk up to the enemy. This is more of an art than a science.
 
 Please do not try to type things that are not numbers into any of the custom skill text fields (aside from the dashes in the frames text box), or the program will glitch out until you close and reopen it.
 
+## Macros
 This program will also create a Memu macro which you can use to perform the desired chain in-game. 
 Three things to keep in mind: 
  - Macro output is designed for Memu version 6 or higher. It will not work on older versions.

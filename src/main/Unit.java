@@ -32,7 +32,8 @@ public class Unit extends JPanel implements ChangeListener, ActionListener {
 		hitFrames = null;
 		castStartFrames = null;
 		this.setLayout(new GridLayout(2 + Constants.MAX_NUMBER_OF_UNITS, 1 + Constants.MAX_CAST_COUNT));
-		unitNameField = new JTextField("src.main.Unit " + Integer.toString(slot + 1));
+		unitNameField = new JTextField("Unit " + Integer.toString(slot + 1));
+		unitNameField.setHorizontalAlignment(JTextField.CENTER);
 		unitNameField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				unitName = unitNameField.getText();

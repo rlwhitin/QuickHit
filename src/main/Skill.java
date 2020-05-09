@@ -150,73 +150,69 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == ItemEvent.SELECTED) {
-			switch((String)e.getItem()) {
-			case "None":
-				hits = null;
-				break;
-			case "Custom skill":
-				initializeCustomSkill();
-				break;
-			case "Absolute Mirror of Equity":
-				hits = Constants.AT_FRAMES;
-				castTime = Constants.AT_CAST;
-				break;
-			case "Absolute Zero":
-				hits = Constants.AT_FRAMES;
-				castTime = Constants.AZ_CAST;
-				break;
-			case "Aureole Ray":
-				hits = Constants.AR_FRAMES;
-				castTime = Constants.AR_CAST;
-				break;
-			case "Bolting Strike":
-				hits = Constants.BS_FRAMES;
-				castTime = Constants.BS_CAST;
-				break;
-			case "Chaos Wave":
-				hits = Constants.CW_FRAMES;
-				castTime = Constants.CW_CAST;
-				break;
-			case "Chaos Wave Awakened":
-				hits = Constants.CWA_FRAMES;
-				castTime = Constants.CWA_CAST;
-				break;
-			case "Disorder":
-				hits = Constants.DISORDER_FRAMES;
-				castTime = Constants.DISORDER_CAST;
-				break;
-			case "Divine Ruination":
-				hits = Constants.DR_FRAMES;
-				castTime = Constants.DR_CAST;
-				break;
-			case "Flood":
-				hits = Constants.FLD_FRAMES;
-				castTime = Constants.FLD_CAST;
-				break;
-			case "Freeze":
-				hits = Constants.FREEZE_FRAMES;
-				castTime = Constants.FREEZE_CAST;
-				break;
-			case "Graviton Cannon":
-				hits = Constants.GC_FRAMES;
-				castTime = Constants.GC_CAST;
-				break;
-			case "Kingsglaive":
-				hits = Constants.KG_FRAMES;
-				castTime = Constants.KG_CAST;
-				break;
-			case "Octaslash":
-				hits = Constants.OCTA_FRAMES;
-				castTime = Constants.OCTA_CAST;
-				break;
-			case "Stardust Ray":
-				hits = Constants.SR_FRAMES;
-				castTime = Constants.SR_CAST;
-				break;
-			case "Tornado":
-				hits = Constants.TORNADO_FRAMES;
-				castTime = Constants.TORNADO_CAST;
-				break;
+			switch ((String) e.getItem()) {
+				case "None" -> hits = null;
+				case "Custom skill" -> initializeCustomSkill();
+				case "Absolute Mirror of Equity" -> {
+					hits = Constants.AT_FRAMES;
+					castTime = Constants.AT_CAST;
+				}
+				case "Absolute Zero" -> {
+					hits = Constants.AT_FRAMES;
+					castTime = Constants.AZ_CAST;
+				}
+				case "Aureole Ray" -> {
+					hits = Constants.AR_FRAMES;
+					castTime = Constants.AR_CAST;
+				}
+				case "Bolting Strike" -> {
+					hits = Constants.BS_FRAMES;
+					castTime = Constants.BS_CAST;
+				}
+				case "Chaos Wave" -> {
+					hits = Constants.CW_FRAMES;
+					castTime = Constants.CW_CAST;
+				}
+				case "Chaos Wave Awakened" -> {
+					hits = Constants.CWA_FRAMES;
+					castTime = Constants.CWA_CAST;
+				}
+				case "Disorder" -> {
+					hits = Constants.DISORDER_FRAMES;
+					castTime = Constants.DISORDER_CAST;
+				}
+				case "Divine Ruination" -> {
+					hits = Constants.DR_FRAMES;
+					castTime = Constants.DR_CAST;
+				}
+				case "Flood" -> {
+					hits = Constants.FLD_FRAMES;
+					castTime = Constants.FLD_CAST;
+				}
+				case "Freeze" -> {
+					hits = Constants.FREEZE_FRAMES;
+					castTime = Constants.FREEZE_CAST;
+				}
+				case "Graviton Cannon" -> {
+					hits = Constants.GC_FRAMES;
+					castTime = Constants.GC_CAST;
+				}
+				case "Kingsglaive" -> {
+					hits = Constants.KG_FRAMES;
+					castTime = Constants.KG_CAST;
+				}
+				case "Octaslash" -> {
+					hits = Constants.OCTA_FRAMES;
+					castTime = Constants.OCTA_CAST;
+				}
+				case "Stardust Ray" -> {
+					hits = Constants.SR_FRAMES;
+					castTime = Constants.SR_CAST;
+				}
+				case "Tornado" -> {
+					hits = Constants.TORNADO_FRAMES;
+					castTime = Constants.TORNADO_CAST;
+				}
 			}
 			parentUnit.calcFrames();
 		}
@@ -232,7 +228,7 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 			cgDelay = Integer.parseInt(customCGDelayBox.getText());
 			String newFramesString = customFramesBox.getText().replaceAll("-", " ");
 			Scanner frameReader = new Scanner(newFramesString);
-			ArrayList<Integer> newFrames = new ArrayList<Integer>();
+			ArrayList<Integer> newFrames = new ArrayList<>();
 			while(frameReader.hasNextInt()) {
 				int nextFrame = frameReader.nextInt();
 				newFrames.add(nextFrame);
