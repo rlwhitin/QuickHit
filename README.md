@@ -3,7 +3,7 @@ QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which wil
 
 ![QH Image](https://i.imgur.com/vWsFKtx.png)
 ## Running Quick Hit
-For most people, unless they want to look at my very messy source code, you only need to download QuickHit.jar. The other files are unnecessary.
+For most people, unless they want to look at my very messy source code, you only need to download QuickHit.jar, which you can find at the [Releases page][4]-- just download it from the most recent release. The other files are unnecessary.
 
 It comes pre-loaded with all of the most common chaining families, and also allows you to input custom skills.
 
@@ -46,3 +46,4 @@ Three things to keep in mind:
 [1]: https://www.finalfantasyexvius.com/
 [2]: https://discord.gg/ffbraveexvius
 [3]: https://exvius.gamepedia.com/Chaining/Extreme_Nova
+[4]: https://github.com/Muspelful/QuickHit/releases
