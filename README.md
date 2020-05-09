@@ -1,7 +1,7 @@
 # **Quick Hit**
 QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will show a visual representation of chains, showing when and where they will break.
 
-![QH Image](https://i.imgur.com/vWsFKtx.png)
+![QH Image](https://i.imgur.com/iQDOP1e.png)
 ## Running Quick Hit
 For most people, unless they want to look at my very messy source code, you only need to download QuickHit.jar, which you can find at the [Releases page][4]-- just download it from the most recent release. The other files are unnecessary.
 
