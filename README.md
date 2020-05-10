@@ -22,9 +22,11 @@ Going back to the Flood example, we see this:
 133-12-12-12-12-12-12-12-12-12-12-12 (40)
 ```
 
-The number in parenthesis is the cast time, and the rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window.
+The number in parentheses is the cast time, and the rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window.
 
-If a skill uses something other than a typical cast animation, you could try to simulate that by increasing the cast time, but that's going to be fairly imprecise.
+If the skill does not deal damage, then you should *only* input its cast time (again, in parentheses). Do not input the frames, because if you do, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
+
+If a skill uses something other than a typical cast animation, you could try to simulate that by increasing the cast time, but that's going to be fairly imprecise. Similarly, you can attempt to simulate any skill that has walking frames by manually adjusting the offset, but the results will, once again, not be exact.
 
 ## Delays
 CG delay is something that is only relevant for units that have CG LBs. Supposedly, this number can be datamined, but I haven't yet been able to find a place where you can look up the CG delay of each LB. However, the game's wiki does have a page for the **[Extreme Nova][3]** family, which lists the animation delay for each LB that has Extreme Nova frames.
