@@ -160,7 +160,7 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 				castTime = Constants.AT_CAST;
 				break;
 			case "Absolute Zero":
-				hits = Constants.AT_FRAMES;
+				hits = Constants.AZ_FRAMES;
 				castTime = Constants.AZ_CAST;
 				break;
 			case "Aureole Ray":
@@ -235,11 +235,9 @@ public class Skill extends JPanel implements ItemListener, ActionListener {
 				int nextFrame = frameReader.nextInt();
 				newFrames.add(nextFrame);
 			}
-			if(newFrames.size() > 0) {
-				hits = new int[newFrames.size()];
-				for(int count = 0; count < hits.length; count++) {
-					hits[count] = newFrames.get(count);
-				}
+			hits = new int[newFrames.size()];
+			for(int count = 0; count < hits.length; count++) {
+				hits[count] = newFrames.get(count);
 			}
 			parentUnit.calcFrames();
 			frameReader.close();
