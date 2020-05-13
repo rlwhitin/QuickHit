@@ -260,7 +260,12 @@ public class Unit extends JPanel {
 						case "Copy previous skill":
 							skillHitFrames = new ArrayList<Integer>();
 							if(!skills.get(castNumber - 1).isEmpty) {
-								offset = skills.get(castNumber - 1).offset;
+								if((castNumber - 1 == 0) && skills.get(castNumber - 1).offset == 13) {
+									offset = 14;
+								}
+								else {
+									offset = skills.get(castNumber - 1).offset;
+								}
 								castTime = skills.get(castNumber - 1).castTime;
 								cgDelay = skills.get(castNumber - 1).cgDelay;
 								skillHitFrames.addAll(skills.get(castNumber - 1).skillHitFrames);
