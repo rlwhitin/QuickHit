@@ -13,7 +13,7 @@ By default, you can use the slider to adjust a unit's send time between 0 and 20
 In the chain visualizer section, any hit which breaks a chain will be colored in red. There are also green dots, which indicate when each cast starts-- this can be helpful to know for something like Dark Visions, in case you want to know how late in a chain the last cast will start if you're concerned about overkill cancelling, or if one of the skills applies an imbue or break and you want to make sure it's up before your "payload" goes off.
 
 ## Custom Frames
-For custom skills, after you select "Custom skill" from the drop down menu, you can find the information you need to fill out the window by joining the [FFBE discord][2], going to the #bot-stuff channel, and typing in "!skill <skill name>" (for instance, "!skill Flood" for Flood). There is a bot on the server that will immediately respond with a whole block of text, but for our purposes, we care about the bit under "Frames".
+For custom skills, after you select "Custom skill" from the drop down menu, you can find the information you need to fill out the window by joining the [FFBE discord][2], going to the #bot-stuff channel, and typing in "!skill skill name" (for instance, "!skill Flood" for Flood). There is a bot on the server that will immediately respond with a whole block of text, but for our purposes, we care about the bit under "Frames".
 
 Going back to the Flood example, we see this:
 
