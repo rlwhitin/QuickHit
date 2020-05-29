@@ -12,6 +12,7 @@ import java.util.Collections;
 
 public class ChainVisualizer extends JPanel {
 	private ArrayList<ChainHit> chainHits;
+	//JCheckBox showCastStart, showDeathCheck;
 	
 	ChainVisualizer() {
 		setBackground(Color.WHITE);
