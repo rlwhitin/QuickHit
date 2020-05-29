@@ -28,7 +28,7 @@ public class MacroMaker extends JPanel {
 		macroLines = new ArrayList<MacroLine>(Constants.MAX_NUMBER_OF_UNITS);
 		for(Unit thisUnit : MainGUI.getUnits()) {
 			if(thisUnit.getNumberOfCasts() > 0) {
-				int sendTime = Constants.MEMU_MACRO_START + (thisUnit.getSendTime() * Constants.MEMU_FRAME_LENGTH);
+				int sendTime = (int)Math.round(Constants.MEMU_MACRO_START + (thisUnit.getSendTime() * Constants.MEMU_FRAME_LENGTH));
 				String xPos = Integer.toString(Constants.MEMU_UNIT_X_COORDS[thisUnit.getSlot()]);
 				String yPos = Integer.toString(Constants.MEMU_UNIT_Y_COORDS[thisUnit.getSlot()]);
 				String thisMacroLine = Integer.toString(sendTime) + Constants.MEMU_CLICK_DOWN_HEADER + xPos + ":" + yPos + Constants.MEMU_CLICK_DOWN_TAIL;

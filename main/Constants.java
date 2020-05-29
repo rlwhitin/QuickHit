@@ -50,7 +50,7 @@ public class Constants {
 	public static final int TORNADO_CAST = 40;
 	public static final int FIRST_CAST_OFFSET = 13;
 	public static final int SUBSEQUENT_CAST_OFFSET = 14;
-	public static final int MEMU_FRAME_LENGTH = 16667;
+	public static final double MEMU_FRAME_LENGTH = 16666.66666;
 	public static final int MEMU_MACRO_START = 1000;
 	public static final int MEMU_CLICK_RELEASE_DELAY = 100;
 	public static final int[] MEMU_UNIT_X_COORDS = {166, 166, 166, 504, 504, 504};
