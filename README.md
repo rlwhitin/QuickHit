@@ -26,7 +26,7 @@ The number in parentheses is the cast time. If the cast time is 0, then the *act
 
 So, in this example, we would put ``40`` into the "Cast time" box and ``133-12-12-12-12-12-12-12-12-12-12-12`` into the "Frames" box.
 
-If the skill does not deal damage, then you should *only* input its cast time (again, in parentheses). Do not input the frames, because if you do, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
+If the skill does not deal damage, then you should *only* input its cast time (again, in parentheses). Leave the "frames" box blank, because if you don't, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
 
 If a skill uses something other than a typical cast animation, you could try to simulate that by increasing the cast time, but that's going to be fairly imprecise. Similarly, you can attempt to simulate any skill that has walking frames by manually adjusting the offset, but the results will, once again, not be exact.
 
