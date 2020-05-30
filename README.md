@@ -22,7 +22,9 @@ Going back to the Flood example, we see this:
 133-12-12-12-12-12-12-12-12-12-12-12 (40)
 ```
 
-The number in parentheses is the cast time, and the rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window.
+The number in parentheses is the cast time. If the cast time is 0, then the *actual* cast time is 10 if it's an ability and 40 if it's a spell. The rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window.
+
+So, in this example, we would put ``40`` into the "Cast time" box and ``133-12-12-12-12-12-12-12-12-12-12-12`` into the "Frames" box.
 
 If the skill does not deal damage, then you should *only* input its cast time (again, in parentheses). Do not input the frames, because if you do, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
 
