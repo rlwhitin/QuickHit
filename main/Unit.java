@@ -120,7 +120,7 @@ public class Unit extends JPanel {
 		unitHitFrames = new ArrayList<Integer>();
 		int currentCastFrame = sendTime;
 		for(Skill thisSkill : skills) {
-			int currentHitFrame = currentCastFrame + thisSkill.offset;
+			int currentHitFrame = currentCastFrame + thisSkill.offset + thisSkill.cgDelay;
 			if(thisSkill.isEmpty) {
 				return;
 			}
