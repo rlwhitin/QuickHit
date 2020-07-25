@@ -43,8 +43,7 @@ public class Unit extends JPanel {
 		slot = newSlot;
 		sendTime = 0;
 		unitName = "Unit " + Integer.toString(slot + 1);
-		unitNameField = new JTextField();
-		unitNameField.setText(unitName);
+		unitNameField = new JTextField(unitName);
 		unitNameField.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -71,8 +70,7 @@ public class Unit extends JPanel {
 			}
 		});
 		this.add(sendTimeSlider);
-		sendTimeField = new JTextField();
-		sendTimeField.setText("0");
+		sendTimeField = new JTextField("0");
 		sendTimeField.setHorizontalAlignment(JTextField.CENTER);
 		sendTimeField.addActionListener(new ActionListener() {
 			@Override
@@ -122,7 +120,7 @@ public class Unit extends JPanel {
 		unitHitFrames = new ArrayList<Integer>();
 		int currentCastFrame = sendTime;
 		for(Skill thisSkill : skills) {
-			int currentHitFrame = currentCastFrame + thisSkill.offset;
+			int currentHitFrame = currentCastFrame + thisSkill.offset + thisSkill.cgDelay;
 			if(thisSkill.isEmpty) {
 				return;
 			}
@@ -397,9 +395,8 @@ public class Unit extends JPanel {
 			inputFieldPanel.add(offsetBoxLabel);
 			inputFieldPanel.add(offsetBox);
 
-			cgDelayBox = new JTextField();
+			cgDelayBox = new JTextField("0");
 			cgDelayBoxLabel = new JLabel("CG LB delay (only for CG LBs)");
-			cgDelayBox.setText("0");
 			inputFieldPanel.add(cgDelayBoxLabel);
 			inputFieldPanel.add(cgDelayBox);
 
@@ -424,6 +421,7 @@ public class Unit extends JPanel {
 						customSkillFrame.dispose();
 					}
 					catch(NumberFormatException error) {
+						isEmpty = true;
 						JFrame errorFrame = new JFrame();
 						JOptionPane.showMessageDialog(errorFrame, "Invalid input", "Error", JOptionPane.ERROR_MESSAGE);
 					}
