@@ -9,7 +9,7 @@ package main;
  * To add a new family, three things must be done:
  * 1. Add the new family's name to both CHAIN_FAMILY_NAMES and FIRST_CAST_CHAIN_FAMILY_NAMES.
  * 2. Add the new family's frames and cast time as constants.
- * 3. Add a new case to the switch statement in itemStateChanged in Skill.java with the family name as the case, and make it so that said case sets the frames and the cast time to the appropriate constants. 
+ * 3. Add a new case to the switch statement in itemStateChanged in Skill.java with the family name as the case, and make it so that said case sets the frames and the cast time to the appropriate constants.
  */
 public class Constants {
 	public static final int MAX_CAST_COUNT = 5;
@@ -26,7 +26,7 @@ public class Constants {
 	public static final Integer[] CWA_FRAMES = {42, 20, 20, 20, 20, 20, 20, 20};
 	public static final Integer[] DISORDER_FRAMES = {42, 5, 5, 5, 5, 5, 5, 5, 5, 5};
 	public static final Integer[] DR_FRAMES = { 70, 7, 5, 7, 7, 7, 7};
-	public static final Integer[] GC_FRAMES = {80, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+	public static final Integer[] GC_FRAMES = {80, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
 	public static final Integer[] FLD_FRAMES = {133, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
 	public static final Integer[] FREEZE_FRAMES = {140, 14, 14, 14, 14, 14, 15, 15};
 	public static final Integer[] KG_FRAMES = {82, 8, 8, 8, 8, 8, 8, 8};
@@ -50,7 +50,7 @@ public class Constants {
 	public static final int TORNADO_CAST = 40;
 	public static final int FIRST_CAST_OFFSET = 13;
 	public static final int SUBSEQUENT_CAST_OFFSET = 14;
-	public static final int MEMU_FRAME_LENGTH = 16667;
+	public static final double MEMU_FRAME_LENGTH = 16666.66666;
 	public static final int MEMU_MACRO_START = 1000;
 	public static final int MEMU_CLICK_RELEASE_DELAY = 100;
 	public static final int[] MEMU_UNIT_X_COORDS = {166, 166, 166, 504, 504, 504};
