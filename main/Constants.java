@@ -38,7 +38,7 @@ public class Constants {
 	public static final int AZ_CAST = 39;
 	public static final int BS_CAST = 38;
 	public static final int CW_CAST = 50;
-	public static final int CWA_CAST = 76;
+	public static final int CWA_CAST = 42;
 	public static final int DISORDER_CAST = 40;
 	public static final int DR_CAST = 40;
 	public static final int GC_CAST = 40;
