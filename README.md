@@ -1,5 +1,5 @@
 # **QuickHit**
-QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will show a visual representation of chains, showing when and where they will break.
+QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will display a visual representation of chains, showing when and where they will break.
 
 ![QH Image](https://i.imgur.com/PkPNJWD.png)
 ## Running Quick Hit
