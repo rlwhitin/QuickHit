@@ -340,6 +340,11 @@ public class Unit extends JPanel {
 							castTime = Constants.OCTA_CAST;
 							isEmpty = false;
 							break;
+						case "Protector's Bayonet":
+							skillHitFrames = new ArrayList<Integer>(Arrays.asList(Constants.PB_FRAMES));
+							castTime = Constants.PB_CAST;
+							isEmpty = false;
+							break;
 						case "Stardust Ray":
 							skillHitFrames = new ArrayList<Integer>(Arrays.asList(Constants.SR_FRAMES));
 							castTime = Constants.SR_CAST;

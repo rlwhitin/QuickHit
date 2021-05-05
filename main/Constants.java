@@ -15,9 +15,9 @@ public class Constants {
 	public static final int MAX_CAST_COUNT = 5;
 	public static final int MAX_NUMBER_OF_UNITS = 6;
 	public static final String[] CHAIN_FAMILY_NAMES = {"None", "Copy previous skill", "Custom skill", "Absolute Mirror of Equity", "Absolute Zero", "Aureole Ray", "Bolting Strike", "Chaos Wave", "Chaos Wave Awakened", "Disorder",
-			"Divine Ruination", "Flood", "Freeze", "Graviton Cannon", "Kingsglaive", "Octaslash", "Stardust Ray", "Tornado"};
+			"Divine Ruination", "Flood", "Freeze", "Graviton Cannon", "Kingsglaive", "Octaslash", "Protector's Bayonet", "Stardust Ray", "Tornado"};
 	public static final String[] FIRST_CAST_CHAIN_FAMILY_NAMES = {"None", "Custom skill", "Absolute Mirror of Equity", "Absolute Zero", "Aureole Ray", "Bolting Strike", "Chaos Wave", "Chaos Wave Awakened", "Disorder",
-			"Divine Ruination", "Flood", "Freeze", "Graviton Cannon", "Kingsglaive", "Octaslash", "Stardust Ray", "Tornado"};
+			"Divine Ruination", "Flood", "Freeze", "Graviton Cannon", "Kingsglaive", "Octaslash", "Protector's Bayonet", "Stardust Ray", "Tornado"};
 	public static final Integer[] AR_FRAMES = {42, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
 	public static final Integer[] AT_FRAMES = {70, 6, 6, 6, 6, 6, 6, 6};
 	public static final Integer[] AZ_FRAMES = {40, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
@@ -31,6 +31,7 @@ public class Constants {
 	public static final Integer[] FREEZE_FRAMES = {140, 14, 14, 14, 14, 14, 15, 15};
 	public static final Integer[] KG_FRAMES = {82, 8, 8, 8, 8, 8, 8, 8};
 	public static final Integer[] OCTA_FRAMES = {42, 10, 10, 10, 10, 10, 10, 10};
+	public static final Integer[] PB_FRAMES = {30, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6};
 	public static final Integer[] SR_FRAMES = {110, 10, 10, 10, 10, 10, 10, 10, 10, 10};
 	public static final Integer[] TORNADO_FRAMES = {80, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
 	public static final int AR_CAST = 39;
@@ -46,6 +47,7 @@ public class Constants {
 	public static final int FREEZE_CAST = 39;
 	public static final int KG_CAST = 39;
 	public static final int OCTA_CAST = 39;
+	public static final int PB_CAST = 39;
 	public static final int SR_CAST = 39;
 	public static final int TORNADO_CAST = 39;
 	public static final int FIRST_CAST_OFFSET = 13;
