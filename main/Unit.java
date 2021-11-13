@@ -114,7 +114,7 @@ public class Unit extends JPanel {
 	}
 
 	/**
-	 * @return the unitHitFrames
+	 * Calculates the unit's hit frames.
 	 */
 	private void calcUnitHitFrames() {
 		unitHitFrames = new ArrayList<Integer>();
@@ -135,7 +135,7 @@ public class Unit extends JPanel {
 	}
 
 	/**
-	 * @return the unitCastFrames
+	 * Calculates the unit's cast frames.
 	 */
 	private void calcUnitCastFrames() {
 		unitCastFrames = new ArrayList<Integer>(5);
@@ -247,7 +247,7 @@ public class Unit extends JPanel {
 							break;
 						case "Custom skill":
 							/* 
-							 * Notably, we do *not* set "isEmpty" to false here. That will happen if/when they click on "save" in the custom skill input frame.
+							 * Notably, we do NOT set "isEmpty" to false here. That will happen if/when they click on "save" in the custom skill input frame.
 							 * Otherwise, there might be a crash if a user opens the custom skill input window, then closes it without saving, because other functions might try to access uninitialized cast times.
 							 * Similarly, we want to clear out skillHitFrames so that whatever was in this slot before doesn't stick around.
 							 */
@@ -340,6 +340,11 @@ public class Unit extends JPanel {
 							castTime = Constants.OCTA_CAST;
 							isEmpty = false;
 							break;
+						case "Protector's Bayonet":
+							skillHitFrames = new ArrayList<Integer>(Arrays.asList(Constants.PB_FRAMES));
+							castTime = Constants.PB_CAST;
+							isEmpty = false;
+							break;
 						case "Stardust Ray":
 							skillHitFrames = new ArrayList<Integer>(Arrays.asList(Constants.SR_FRAMES));
 							castTime = Constants.SR_CAST;
@@ -380,7 +385,7 @@ public class Unit extends JPanel {
 			inputFieldPanel.add(castTimeBox, BorderLayout.NORTH);
 
 			frameBox = new JTextField();
-			frameBoxLabel = new JLabel("Frames (e.g. \"70-7-5-7-7-7-7\"). Leave blank if skill does not deal damage.");
+			frameBoxLabel = new JLabel("Frames (e.g. \"70-7-5-7-7-7-7\"). Leave this blank if skill does not deal damage.");
 			inputFieldPanel.add(frameBoxLabel);
 			inputFieldPanel.add(frameBox);
 

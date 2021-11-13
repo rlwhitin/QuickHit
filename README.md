@@ -1,7 +1,7 @@
 # **QuickHit**
-QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will show a visual representation of chains, showing when and where they will break.
+QuickHit is a tool for the mobile game [Final Fantasy Brave Exvius][1] which will display a visual representation of chains, showing when and where they will break.
 
-![QH Image](https://i.imgur.com/h84V26H.png)
+![QH Image](https://i.imgur.com/PkPNJWD.png)
 ## Running Quick Hit
 For most people, unless they want to look at my very messy source code, you only need to download QuickHit.jar, which you can find at the [Releases page][4]-- just download it from the most recent release. The other files are unnecessary.
 
@@ -10,10 +10,10 @@ It comes pre-loaded with all of the most common chaining families, and also allo
 ## Using Quick Hit
 By default, you can use the slider to adjust a unit's send time between 0 and 200 frames. If you find that the slider is too imprecise, you can also set a specific send time by typing it into the text box below the slider and pressing enter. If you type in a value that is greater than the normal maximum of 200, it will increase the maximum value of the slider, which can be useful if you need a particularly wide range of send times.
 
-In the chain visualizer section, any hit which breaks a chain will be colored in red. There are also green dots, which indicate when each cast starts-- this can be helpful to know for something like Dark Visions, in case you want to know how late in a chain the last cast will start if you're concerned about overkill cancelling, or if one of the skills applies an imbue or break and you want to make sure it's up before your "payload" goes off.
+In the chain visualizer section, any hit which breaks a chain will be colored in red. There are also blue dots, which indicate when each cast starts-- this can be helpful to know for something like Dark Visions, in case you want to know how late in a chain the last cast will start if you're concerned about overkill cancelling, or if one of the skills applies an imbue or break and you want to make sure it's up before your "payload" goes off.
 
 ## Custom Frames
-For custom skills, after you select "Custom skill" from the drop down menu, you can find the information you need to fill out the window by joining the [FFBE discord][2], going to the #bot-stuff channel, and typing in "!skill <skill name>" (for instance, "!skill Flood" for Flood). There is a bot on the server that will immediately respond with a whole block of text, but for our purposes, we care about the bit under "Frames".
+For custom skills, after you select "Custom skill" from the drop down menu, you can find the information you need to fill out the window by joining the [FFBE discord][2], going to the #bot-stuff channel, and typing in "!skill skill name" (for instance, "!skill Flood" for Flood). There is a bot on the server that will immediately respond with a whole block of text, but for our purposes, we care about the bit under "Frames".
 
 Going back to the Flood example, we see this:
 
@@ -22,9 +22,11 @@ Going back to the Flood example, we see this:
 133-12-12-12-12-12-12-12-12-12-12-12 (40)
 ```
 
-The number in parentheses is the cast time, and the rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window.
+The number in parentheses is the cast time. If the bot says that the cast time is 0, then the *real* cast time is 10 if it's an ability and 40 if it's a spell. The rest of the numbers, split up by dashes, are the skill's hit frames. You can paste the hit frames (including the dashes) into the custom skill input window. A skill that hits only a single time will have only one hit frame (and no dashes).
 
-If the skill does not deal damage, then you should *only* input its cast time (again, in parentheses). Do not input the frames, because if you do, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
+So, in this example, we would put ``40`` into the "Cast time" box and ``133-12-12-12-12-12-12-12-12-12-12-12`` into the "Frames" box.
+
+If the skill does not deal damage, then you should *only* input its cast time (again, it's the number listed in parentheses). Leave the "frames" box blank, because if you don't, then you're telling the program that the skill actually hits the enemy and it will treat it as though it can contribute to chains.
 
 If a skill uses something other than a typical cast animation, you could try to simulate that by increasing the cast time, but that's going to be fairly imprecise. Similarly, you can attempt to simulate any skill that has walking frames by manually adjusting the offset, but the results will, once again, not be exact.
 
@@ -34,9 +36,7 @@ CG delay is something that is only relevant for units that have CG LBs. Supposed
 If you have the actual CG animation turned on, things become slightly more complicated. This will increase the CG delay by two, but if you activate multiple CG LBs in rapid succession, only the first one will show its CG animation, so the others won't have that 2 frame delay, so you'll have to adjust your inputs appropriately. For this reason, I would suggest leaving CG animations off. It simplifies things.
 
 ## Skills with movement
-For most skills, you can just leave the offset at its default value. However, if you're using a skill that has walking frames, then you should try to adjust this to include however many frames you think it will take the unit to walk up to the enemy. This is more of an art than a science.
-
-Please do not try to type things that are not numbers into any of the custom skill text fields (aside from the dashes in the frames text box), or the program will glitch out until you close and reopen it.
+For most skills, you can just leave the offset at its default value. However, if you're using a skill that has walking frames, then you should try to adjust this to include however many frames you think it will take the unit to walk up to the enemy. This is more of an art than a science, as it will vary depending on the size and positioning of the enemy's hitbox.
 
 ## Macros
 This program will also create a Memu macro which you can use to perform the desired chain in-game. 
